@@ -1,0 +1,113 @@
+<div class="container">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="save(f)">
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Cadastro de Departamentos</h1>
+      </div>
+
+      <div class="ui-g-6 ui-md-5 ui-fluid">
+        <label >Código</label>
+        <input pInputText type="text" name="codigo"
+          [(ngModel)]="departmentsEntity.code" #codigo="ngModel" required maxlength="10">
+
+        <app-message [control]="codigo" error="required"
+          text="Informe um código"></app-message>
+      </div>
+
+      <div class="ui-g-6 ui-md-5 ui-fluid">
+        <label >Nome</label>
+        <input pInputText type="text" name="nome"
+        [(ngModel)]="departmentsEntity.name" #nome="ngModel" required minlength="3" maxlength="50">
+
+        <app-message [control]="nome" error="required"
+          text="Informe um nome"></app-message>
+        <app-message [control]="nome" error="minlength"
+          text="Mínimo de {{ nome.errors?.minlength?.requiredLength }} caracteres "></app-message>
+      </div>
+
+      <div class="ui-g-6 ui-md-5 ui-fluid">
+        <label >Local</label>
+        <input pInputText type="text" name="local"
+        [(ngModel)]="departmentsEntity.address" #local="ngModel" required minlength="3" maxlength="50">
+
+        <app-message [control]="local" error="required"
+          text="Informe um local"></app-message>
+        <app-message [control]="local" error="minlength"
+          text="Mínimo de {{ local.errors?.minlength?.requiredLength }} caracteres "></app-message>
+      </div>
+
+      <div class="ui-g-6 ui-md-5 ui-fluid">
+        <label >Cidade</label>
+        <input pInputText type="text" name="cidade"
+        [(ngModel)]="departmentsEntity.city" #cidade="ngModel" required minlength="3" maxlength="50">
+
+        <app-message [control]="cidade" error="required"
+          text="Informe uma cidade"></app-message>
+        <app-message [control]="cidade" error="minlength"
+          text="Mínimo de {{ cidade.errors?.minlength?.requiredLength }} caracteres "></app-message>
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label >Estado</label>
+        <p-dropdown [options]="estados" placeholder="Selecione"
+          [autoWidth]="false" name="estado" [(ngModel)]="departmentsEntity.state" #estado="ngModel" required></p-dropdown>
+
+        <app-message [control]="estado" error="required"
+          text="Informe uma estado"></app-message>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <p-fieldset legend="Diretoria">
+          <div class="ui-g-4">
+            <p-radioButton name="diretoria" value="eis" inputId="eis" [(ngModel)]="departmentsEntity.board" #diretoria="ngModel" required></p-radioButton>
+            <label for="eis">E.I.S</label>
+          </div>
+          <div class="ui-g-4">
+            <p-radioButton name="diretoria" value="recuperacao" inputId="recuperacao" [(ngModel)]="departmentsEntity.board" #diretoria="ngModel" required></p-radioButton>
+            <label for="recuperacao">Recuperação</label>
+          </div>
+          <div class="ui-g-4">
+            <p-radioButton name="diretoria" value="negocio" inputId="negocio" [(ngModel)]="departmentsEntity.board" #diretoria="ngModel" required></p-radioButton>
+            <label for="negocio">Negócios</label>
+          </div>
+
+          <app-message [control]="diretoria" error="required"
+            text="Informe uma diretoria"></app-message>
+        </p-fieldset>
+      </div>
+
+      <div class="ui-g-12" align="right">
+        <button pButton type="submit" label="Gravar"
+        [disabled]="!f.valid"></button>
+      </div>
+    </div>
+  </form>
+
+      <div class="ui-g">
+
+        <div class="ui-g-12">
+          <p-dataTable [value]="departs" [paginator]="true" [rows]="filter.size"
+              [responsive]="true" emptyMessage="Nenhum departamento cadastrado"
+              [lazy]="true" [totalRecords]="totalRegister"
+              (onLazyLoad)="changePage($event)"
+              #table>
+            <p-column field="code" header="Código" styleClass="col-code"></p-column>
+            <p-column field="name" header="Nome"></p-column>
+            <p-column styleClass="col-action">
+              <ng-template let-dep="rowData" pTemplate="body">
+                <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"
+                  [routerLink]="['/departments', dep.code]"></a>
+                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"
+                  (click)="confirmDelete(dep)"></button>
+
+              </ng-template>
+            </p-column>
+
+          </p-dataTable>
+        </div>
+      </div>
+
+
+</div>
+
