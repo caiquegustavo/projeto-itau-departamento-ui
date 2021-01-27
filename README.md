@@ -6,43 +6,43 @@ Projeto desenvolvido em angular CLI utilizando a coleção de componentes do Pri
 * Desenvolvimento estruturado em módulos e componentes
 
 ## Tela Inicial de Cadastro de Departamentos
-![](scr/img/inicial.png)
+![](src/img/inicial.png)
 
 ## Preenchimento dos campos do primeiro cadastro de departamentos
-![](scr/img/cad.png)
+![](src/img/cad.png)
 
 ## Cadastro efetuado com sucesso
-![](scr/img/cad-sucess.png)
+![](src/img/cad-sucess.png)
 
 ## Selecionando departamento para edição
-![](scr/img/edi.png)
+![](src/img/edi.png)
 
 ## Tela inicial de edição do departamento
-![](scr/img/edi-tela.png)
+![](src/img/edi-tela.png)
 
 ## Editando o departamento
-![](scr/img/edi-alterado.png)
+![](src/img/edi-alterado.png)
 
 ## Departamento alterado com sucesso
-![](scr/img/edi-sucess.png)
+![](src/img/edi-sucess.png)
 
 ## Selecionando departamento para exclusão
-![](scr/img/del.png)
+![](src/img/del.png)
 
 ## Confirmação da exclusão do departamento
-![](scr/img/del-confirm.png)
+![](src/img/del-confirm.png)
 
 ## Departamento excluído com sucesso
-![](scr/img/del-sucess.png)
+![](src/img/del-sucess.png)
 
 ## Listagem de departamentos
-![](scr/img/listagem.png)
+![](src/img/listagem.png)
 
 ## Validação dos campos de cadastrado
-![](scr/img/validacao.png)
+![](src/img/validacao.png)
 
 ## Validação de departamentos já cadastrado
-![](scr/img/validacao-dep.png)
+![](src/img/validacao-dep.png)
 
 ## Visualização da tela em formato de design responsivo
-![](scr/img/responsive.png)
+![](src/img/responsive.png)
